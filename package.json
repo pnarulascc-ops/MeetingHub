@@ -1,0 +1,90 @@
+{
+  "private": true,
+  "retool": {
+    "app": {
+      "uuid": "622b4814-7440-11f1-bab0-e3130b485652",
+      "name": null,
+      "resourceReferencesByFile": {
+        "/backend/meeting/bookSlot.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/meeting/cancelSlot.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/meeting/config.ts": [],
+        "/backend/meeting/getSession.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/meeting/listSlots.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/meeting/login.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/meeting/logout.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/meeting/session.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/user.d.ts": [],
+        "/backend/meeting/approveRequest.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/meeting/rejectRequest.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/meeting/deleteRequest.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ],
+        "/backend/meeting/updateRequest.ts": [
+          {
+            "name": "ca47027b-242a-4908-8d59-39b834db64d5",
+            "displayName": "retool_db",
+            "type": "retoolDb"
+          }
+        ]
+      }
+    }
+  }
+}

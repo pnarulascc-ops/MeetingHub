@@ -1,0 +1,33 @@
+{
+  "status": "complete",
+  "phases": [
+    {
+      "id": "phase-1",
+      "title": "Port canvas component",
+      "description": "Goal: Port the source canvas component into the sandbox unchanged.\n\nSource → target mapping rows\n\n| source path | target path | class | transform notes |\n| --- | --- | --- | --- |\n| /imported-source/frontend/components/StarterCanvas.tsx | /frontend/components/StarterCanvas.tsx | A | byte-identical copy |\n\nRow ordering: Author files in dependency order — children before importers.\nCarve-out: Do not create, modify, or delete any file whose target path is not in the row list above.\nTool selection rule: Class A → copy file; Class B → copy file FIRST, then edit applying the row's transform notes; Class C → write file (no `/imported-source/` counterpart); Class D → write file (transform notes carries the justification).\nCatalogue lookup: For each Class B/D row, match the row's transform notes to the matching entry in the Call-site rewrite catalogue (system prompt) and quote that single entry's Recognizers / Target / Tool class block into the subagent brief. Do NOT paste the entire catalogue.",
+      "status": "complete",
+      "notes": "StarterCanvas is ported at /frontend/components/StarterCanvas.tsx and matches the imported source byte-for-byte."
+    },
+    {
+      "id": "phase-2",
+      "title": "Port app shell",
+      "description": "Goal: Port the source app entry so it renders the imported canvas component.\n\nSource → target mapping rows\n\n| source path | target path | class | transform notes |\n| --- | --- | --- | --- |\n| /imported-source/frontend/App.tsx | /frontend/App.tsx | A | byte-identical copy |\n\nRow ordering: Author files in dependency order — children before importers.\nCarve-out: Do not create, modify, or delete any file whose target path is not in the row list above.\nTool selection rule: Class A → copy file; Class B → copy file FIRST, then edit applying the row's transform notes; Class C → write file (no `/imported-source/` counterpart); Class D → write file (transform notes carries the justification).\nCatalogue lookup: For each Class B/D row, match the row's transform notes to the matching entry in the Call-site rewrite catalogue (system prompt) and quote that single entry's Recognizers / Target / Tool class block into the subagent brief. Do NOT paste the entire catalogue.",
+      "status": "complete",
+      "notes": "App shell is ported at /frontend/App.tsx as a byte-identical copy and renders the previously imported StarterCanvas component."
+    },
+    {
+      "id": "gap-review",
+      "title": "Review the imported app for gaps and queue fix phases",
+      "description": "Review the completed target app against the imported source under\n/imported-source/. Identify import gaps, but do not fix them inline in this\nphase.\n\nCompare the source and target coverage for:\n- routes & pages\n- components\n- backend functions\n- serverless / edge / custom server routes\n- dependencies\n- styling & theming\n- auth / env / assumptions\n\nAdditionally:\n- run the project's build/typecheck to check for any remaining errors\n- check the /plans/import-build-plan.json for any remaining deferred gaps that did not get addressed in later phases\n\nFor material gaps / build errors, append focused fix phase(s) with\n`extend_phased_build_plan`. Each appended phase should be self-contained and small\nenough for one context window.\n\nKeep any comparison notes private or in tool arguments only; do not narrate the full\naudit to the user. Do not re-queue gaps already covered by existing phases.\n\nWhen all identified gaps have been queued, call `complete_build_phase`. If no gaps\nare found, call `complete_build_phase` without appending phases.",
+      "status": "complete",
+      "notes": "Queued follow-up phase to fix the remaining strict TypeScript style-object gap in /frontend/components/StarterCanvas.tsx. No additional route, backend, dependency, auth, or source-coverage gaps were identified from the imported source or existing plan."
+    },
+    {
+      "id": "phase-3",
+      "title": "Fix StarterCanvas strict style typing",
+      "description": "Goal: Resolve the remaining strict TypeScript gap in the imported canvas component without changing runtime behavior.\n\nSource → target mapping rows\n\n| source path | target path | class | transform notes |\n| --- | --- | --- | --- |\n| /imported-source/frontend/components/StarterCanvas.tsx | /frontend/components/StarterCanvas.tsx | B | replace the conditional `null` object spread inside the canvas `style` prop with an object-only conditional expression so the file compiles cleanly under the sandbox's strict TypeScript settings while preserving the same fade-in transition behavior |\n\nObserved gap: `/frontend/components/StarterCanvas.tsx` still contains `...(fadeIn ? { transition: 'opacity 0.35s ease' } : null)` in the canvas style object. Under the sandbox's strict TypeScript settings, that conditional spread is not object-safe and must be rewritten.\n\nRow ordering: Author files in dependency order — children before importers.\nCarve-out: Do not create, modify, or delete any file whose target path is not in the row list above.\nTool selection rule: Class A → copy file; Class B → copy file FIRST, then edit applying the row's transform notes; Class C → write file (no `/imported-source/` counterpart); Class D → write file (transform notes carries the justification).",
+      "status": "complete",
+      "notes": "StarterCanvas now uses an object-only conditional style expression for the fade-in transition and compiles under strict TypeScript without changing behavior."
+    }
+  ]
+}
